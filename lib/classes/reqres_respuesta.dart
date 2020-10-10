@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:peticionhttp/classes/Persona.dart';
+
 ReqResResponse reqResResponseFromJson(String str) => ReqResResponse.fromJson(json.decode(str));
 
 String reqResResponseToJson(ReqResResponse data) => json.encode(data.toJson());
@@ -68,34 +70,3 @@ class Ad {
     };
 }
 
-class Persona {
-    Persona({
-        this.id,
-        this.email,
-        this.firstName,
-        this.lastName,
-        this.avatar,
-    });
-
-    int id;
-    String email;
-    String firstName;
-    String lastName;
-    String avatar;
-
-    factory Persona.fromJson(Map<String, dynamic> json) => Persona(
-        id        : json["id"],
-        email     : json["email"],
-        firstName : json["first_name"],
-        lastName  : json["last_name"],
-        avatar    : json["avatar"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id"          : id,
-        "email"       : email,
-        "first_name"  : firstName,
-        "last_name"   : lastName,
-        "avatar"      : avatar,
-    };
-}
